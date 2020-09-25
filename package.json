@@ -5,5 +5,9 @@
   "scripts": {
     "serve": "vue serve demo.vue"
   },
-  "license": "MIT"
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "license": "MIT",
+  "author": "DoveAz"
 }
