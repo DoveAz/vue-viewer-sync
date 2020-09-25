@@ -1,0 +1,9 @@
+{
+  "name": "vue-viewer-sync",
+  "version": "0.0.1",
+  "main": "main.js",
+  "scripts": {
+    "serve": "vue serve demo.vue"
+  },
+  "license": "MIT"
+}
