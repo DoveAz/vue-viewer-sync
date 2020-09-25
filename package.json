@@ -8,6 +8,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
+  "repository":"https://github.com/DoveAz/vue-viewer-sync",
   "license": "MIT",
   "author": "DoveAz"
 }
