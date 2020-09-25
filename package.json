@@ -1,6 +1,6 @@
 {
   "name": "vue-viewer-sync",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "src/plugins/ViewerSync.js",
   "scripts": {
     "serve": "vue-cli-service serve",
