@@ -36,8 +36,9 @@ export default {
   margin-top: 60px;
 }
 #viewer {
-  position: absolute;
   background-color: red;
   display: none;
+  width: 100%;
+  height: 100%;
 }
 </style>
