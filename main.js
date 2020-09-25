@@ -11,13 +11,16 @@ ViewerSync.install = function (Vue, options) {
     },
     mounted() {
       this.viewer = document.querySelector(options.el)
+      this.viewer.style.position = 'absolute'
       let wrap = this.$el
       this.viewer.style.display = 'block'
+      console.log(wrap.getBoundingClientRect())
       const handleStyle = throttle(() => {
-        this.viewer.style.top = wrap.offsetTop + 'px'
-        this.viewer.style.left = wrap.offsetLeft + 'px'
-        this.viewer.style.width = wrap.offsetWidth + 'px'
-        this.viewer.style.height = wrap.offsetHeight + 'px'
+        const {top,left,width,height} = wrap.getBoundingClientRect()
+        this.viewer.style.top = top + document.documentElement.scrollTop + 'px'
+        this.viewer.style.left = left + document.documentElement.scrollLeft + 'px'
+        this.viewer.style.width = width + 'px'
+        this.viewer.style.height = height + 'px'
         this.$emit('resize')
         if (isFunction(options.onResize)) {
           options.onResize()
@@ -44,11 +47,11 @@ ViewerSync.install = function (Vue, options) {
     },
     render(h) {
       return h(
-        'div',
-        {
-          class: 'viewer-sync'
-        },
-        this.$slots.default
+      'div',
+      {
+        class: 'viewer-sync'
+      },
+      this.$slots.default
       )
     }
   })
