@@ -1,7 +1,7 @@
 import { throttle, isFunction } from 'lodash'
 
 const ViewerSync = {}
-ViewerSync.install = function (Vue, options) {
+ViewerSync.install = function(Vue, options) {
   Vue.component('ViewerSync', {
     data() {
       return {
@@ -14,9 +14,8 @@ ViewerSync.install = function (Vue, options) {
       this.viewer.style.position = 'absolute'
       let wrap = this.$el
       this.viewer.style.display = 'block'
-      console.log(wrap.getBoundingClientRect())
       const handleStyle = throttle(() => {
-        const {top,left,width,height} = wrap.getBoundingClientRect()
+        const { top, left, width, height } = wrap.getBoundingClientRect()
         this.viewer.style.top = top + document.documentElement.scrollTop + 'px'
         this.viewer.style.left = left + document.documentElement.scrollLeft + 'px'
         this.viewer.style.width = width + 'px'
@@ -47,11 +46,11 @@ ViewerSync.install = function (Vue, options) {
     },
     render(h) {
       return h(
-      'div',
-      {
-        class: 'viewer-sync'
-      },
-      this.$slots.default
+        'div',
+        {
+          class: 'viewer-sync'
+        },
+        this.$slots.default
       )
     }
   })
