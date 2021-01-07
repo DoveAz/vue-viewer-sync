@@ -1,17 +1,13 @@
 const ViewerSync = {}
+let viewer = null
 ViewerSync.install = function(Vue, options) {
   Vue.component('ViewerSync', {
-    data() {
-      return {
-        viewer: null
-      }
-    },
     mounted() {
-      this.viewer = document.querySelector(options.el)
+      viewer = viewer || document.querySelector(options.el)
       let wrap = this.$el
-      this.viewer.style.display = 'block'
+      viewer.style.display = 'block'
       const move = () => {
-        wrap.appendChild(this.viewer)
+        wrap.appendChild(viewer)
       }
       move()
       if (options.mounted) {
@@ -19,7 +15,7 @@ ViewerSync.install = function(Vue, options) {
       }
     },
     beforeDestroy() {
-      this.viewer.style.display = 'none'
+      viewer.style.display = 'none'
       if (options.beforeDestroy) {
         options.beforeDestroy()
       }
